@@ -11,3 +11,5 @@ function* qwe() {
 
 const gen = qwe();
 console.log(gen.next().value)
+
+export default gen;

@@ -2,13 +2,15 @@
   "name": "intercom-assignment",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
     "start": "./node_modules/.bin/babel src --out-dir dist && node dist"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0"
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "ava": "1.0.0-beta.8"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0"
