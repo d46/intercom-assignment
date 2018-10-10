@@ -1,15 +1,19 @@
-console.log("Hello world");
-async function qwe() {
-  await 3;
+import _customers from '../data-source/customersIn100km';
+const customers = _customers.default
+import bruteForce from './brute-force';
+
+class App {
+  bruteForce() {
+    const distance = 1000 * 100; // 1km
+    return bruteForce({
+      searchPoint: {
+        latitude: 51.92893,
+        longitude: -5.27699
+      },
+      distance,
+      customers
+    });    
+  }
 }
 
-function* qwe() {
-  yield 1;
-  yield 2;
-  yield 3;
-}
-
-const gen = qwe();
-console.log(gen.next().value)
-
-export default gen;
+export default new App()
