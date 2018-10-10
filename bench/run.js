@@ -5,6 +5,7 @@ import sync from './concurrent/sync';
 import App from '../src';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as mkdirp from 'mkdirp';
 
 // Bind parameters to the various loop functions
 // for shake the event-loop
@@ -72,13 +73,16 @@ const executeTasksWithFn = (fn) => {
     )
   );
   
-  console.log(`Done benchmark for ${plainName}`);
+  console.log(`Done iteration for ${plainName}`);
+  mkdirp.sync(path.join(__dirname, 'results'));
   fs.writeFileSync(
     path.join(__dirname, 'results', `${plainName}-${+new Date()}.json`),
     JSON.stringify(result, null, 4)
   )
 }
 
+console.log('Benchmark has been started.');
+const timeA = Date.now();
 [
   App.bruteForce32Customer,
   App.bruteForce32Customer,
@@ -86,11 +90,13 @@ const executeTasksWithFn = (fn) => {
   App.bruteForce32Customer,
   App.bruteForce32Customer,
 
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
   
   // App.bruteForce90kCustomer
 ].forEach(executeTasksWithFn);
+const timeB = Date.now();
+console.log(`Completed in ${(timeB - timeA) / 1000}sec`);
