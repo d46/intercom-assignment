@@ -13,27 +13,26 @@ const getTasks = function* (fn, iteration) {
   yield {
     name: `${fn.name}: Sync iteration x${iteration}`,
     task: sync.bind(null, fn, iteration),
-    plainName: fn.name
+    plainName: fn.name,
+    type: 'sync'
   };
   yield {
     name: `${fn.name}: asyncTimeout iteration x${iteration}`,
     task: asyncTimeout.bind(null, fn, iteration),
-    plainName: fn.name
+    plainName: fn.name,
+    type: 'asyncTimeout'
   };
   yield {
     name: `${fn.name}: alternatingSyncAsync iteration x${iteration}`,
     task: alternatingSyncAsync.bind(null, fn, iteration),
-    plainName: fn.name
+    plainName: fn.name,
+    type: 'alternatingSyncAsync'
   };
   yield {
     name: `${fn.name}: asyncImmediate iteration x${iteration}`,
     task: asyncImmediate.bind(null, fn, iteration),
-    plainName: fn.name
-  };
-  yield {
-    name: `${fn.name}: asyncTimeout iteration x${iteration}`,
-    task: asyncTimeout.bind(null, fn, iteration),
-    plainName: fn.name
+    plainName: fn.name,
+    type: 'asyncImmediate'
   };
 }
 
@@ -48,7 +47,8 @@ const runTasks = (_taskIterator, acc = []) => {
   const {
     name,
     task,
-    plainName
+    plainName,
+    type
   } = value;
   // Execute task and clock time
   let start = Date.now();
@@ -59,7 +59,8 @@ const runTasks = (_taskIterator, acc = []) => {
     plainName,
     name,
     time: end - start,
-  })
+    type
+  });
   if (!done) runTasks(_taskIterator, acc);
   return acc
 }
@@ -90,11 +91,11 @@ const timeA = Date.now();
   App.bruteForce32Customer,
   App.bruteForce32Customer,
 
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
+  App.bruteForce2kCustomer,
+  App.bruteForce2kCustomer,
+  App.bruteForce2kCustomer,
+  App.bruteForce2kCustomer,
+  App.bruteForce2kCustomer,
   
   // App.bruteForce90kCustomer
 ].forEach(executeTasksWithFn);

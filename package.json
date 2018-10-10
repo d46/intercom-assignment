@@ -7,7 +7,8 @@
     "build:src": "./node_modules/.bin/babel src --out-dir dist/src && npm run copy:data",
     "start": "npm run build:src && node dist/src",
     "build:bench": "./node_modules/.bin/babel bench --out-dir dist/bench",
-    "bench": "npm run build:src && npm run build:bench && node dist/bench/run.js"
+    "bench": "npm run build:src && npm run build:bench && node dist/bench/run.js",
+    "bench:compare": "npm run build:src && npm run build:bench && node dist/bench/compare.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -15,7 +16,8 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
     "ava": "1.0.0-beta.8",
-    "cli-table2": "^0.2.0"
+    "cli-table2": "^0.2.0",
+    "mkdirp": "^0.5.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0"
