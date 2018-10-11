@@ -27,7 +27,7 @@ const benchmarks = fs
   }, {});
 
 const cliTable = new CliTable({
-  head: ['Name', 'Mean', 'Median', 'Min', 'Max']
+  head: ['Name (100k times iteration)', 'Mean', 'Median', 'Min', 'Max']
 });
 
 

@@ -85,19 +85,40 @@ const executeTasksWithFn = (fn) => {
 console.log('Benchmark has been started.');
 const timeA = Date.now();
 [
-  App.bruteForce32Customer,
-  App.bruteForce32Customer,
-  App.bruteForce32Customer,
-  App.bruteForce32Customer,
-  App.bruteForce32Customer,
+  // App.bruteForce32Customer,
+  // App.bruteForce32Customer,
+  // App.bruteForce32Customer,
+  // App.bruteForce32Customer,
+  // App.bruteForce32Customer,
 
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
-  App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
+  // App.bruteForce2kCustomer,
   
-  // App.bruteForce90kCustomer
+  // App.bruteForce20kCustomer,
+  // App.bruteForce20kCustomer,
+  // App.bruteForce20kCustomer,
+  // App.bruteForce20kCustomer,
+
+  App.binary32Customer,
+  App.binary32Customer,
+  App.binary32Customer,
+  App.binary32Customer,
+  App.binary32Customer,
+
+  App.binary2kCustomer,
+  App.binary2kCustomer,
+  App.binary2kCustomer,
+  App.binary2kCustomer,
+  App.binary2kCustomer,
+
+  App.binary20kCustomer,
+  App.binary20kCustomer,
+  App.binary20kCustomer,
+  App.binary20kCustomer,
+  App.binary20kCustomer
 ].forEach(executeTasksWithFn);
 const timeB = Date.now();
 console.log(`Completed in ${(timeB - timeA) / 1000}sec`);

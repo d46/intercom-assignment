@@ -1,7 +1,7 @@
-const customers20kIn500km = require('./customers20kIn500km').default;
+const customersIn500km = require('./customersIn500km').default;
 const fs = require('fs');
 
-let newStructure = customers20kIn500km.reduce((acc, customer)=> {
+let newStructure = customersIn500km.reduce((acc, customer)=> {
   // Populate indexes with rolled lat
   if (!acc.hasOwnProperty('indexes')) acc.indexes = [];
   const lat = Math.floor(+customer.latitude);
@@ -21,7 +21,7 @@ newStructure.indexes = newStructure.indexes.sort((indexA, indexB) => indexA - in
 
 // Write as a new file
 newStructure = `exports.default = ${JSON.stringify(newStructure, null, 4)}`
-fs.writeFile('./data-source/customers20kIn500kmLatIndexed.js', newStructure, (err) => {
+fs.writeFile('./data-source/customersIn500kmLatIndexed.js', newStructure, (err) => {
   if(err) {
       return console.log(err);
   }

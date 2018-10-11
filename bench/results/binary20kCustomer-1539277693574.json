@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "binary20kCustomer",
+        "name": "binary20kCustomer: Sync iteration x100000",
+        "time": 9044,
+        "type": "sync"
+    },
+    {
+        "plainName": "binary20kCustomer",
+        "name": "binary20kCustomer: asyncTimeout iteration x100000",
+        "time": 9410,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "binary20kCustomer",
+        "name": "binary20kCustomer: alternatingSyncAsync iteration x100000",
+        "time": 8268,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "binary20kCustomer",
+        "name": "binary20kCustomer: asyncImmediate iteration x100000",
+        "time": 7632,
+        "type": "asyncImmediate"
+    }
+]

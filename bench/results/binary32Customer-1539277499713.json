@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "binary32Customer",
+        "name": "binary32Customer: Sync iteration x100000",
+        "time": 368,
+        "type": "sync"
+    },
+    {
+        "plainName": "binary32Customer",
+        "name": "binary32Customer: asyncTimeout iteration x100000",
+        "time": 469,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "binary32Customer",
+        "name": "binary32Customer: alternatingSyncAsync iteration x100000",
+        "time": 364,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "binary32Customer",
+        "name": "binary32Customer: asyncImmediate iteration x100000",
+        "time": 437,
+        "type": "asyncImmediate"
+    }
+]

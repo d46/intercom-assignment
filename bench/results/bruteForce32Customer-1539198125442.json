@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "bruteForce32Customer",
+        "name": "bruteForce32Customer: Sync iteration x100000",
+        "time": 707,
+        "type": "sync"
+    },
+    {
+        "plainName": "bruteForce32Customer",
+        "name": "bruteForce32Customer: asyncTimeout iteration x100000",
+        "time": 747,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "bruteForce32Customer",
+        "name": "bruteForce32Customer: alternatingSyncAsync iteration x100000",
+        "time": 656,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "bruteForce32Customer",
+        "name": "bruteForce32Customer: asyncImmediate iteration x100000",
+        "time": 726,
+        "type": "asyncImmediate"
+    }
+]

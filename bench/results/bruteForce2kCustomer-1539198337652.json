@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "bruteForce2kCustomer",
+        "name": "bruteForce2kCustomer: Sync iteration x100000",
+        "time": 7651,
+        "type": "sync"
+    },
+    {
+        "plainName": "bruteForce2kCustomer",
+        "name": "bruteForce2kCustomer: asyncTimeout iteration x100000",
+        "time": 7851,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "bruteForce2kCustomer",
+        "name": "bruteForce2kCustomer: alternatingSyncAsync iteration x100000",
+        "time": 6923,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "bruteForce2kCustomer",
+        "name": "bruteForce2kCustomer: asyncImmediate iteration x100000",
+        "time": 6824,
+        "type": "asyncImmediate"
+    }
+]
