@@ -2,36 +2,15 @@ import test from 'ava';
 import _customers32LatIndexed from '../data-source/customersIn500kmLatIndexed';
 const customers32LatIndexed = _customers32LatIndexed.default; 
 import searchBinary, { binarySearch, binarySearchWithRange } from '../src/binary-search';
-import { getDistanceInFly, getIsInRange } from '../src/util/distance';
+import { getUnitLatDistance } from '../src/util/distance';
 
-
-test('getDistanceInFly 100km', t => {
-  const bool = getDistanceInFly(100 * 1000) < 1
-  t.is(bool, true);
-});
-
-test('getIsInRange', t => {
-  const pointA = 52.92893;
-  const pointB = 53;
-  const range = 0.5;
-  const inRange = getIsInRange(
-    pointA, 
-    pointB, 
-    range
+test('binarySearch odd: Array consist key', t => {
+  const array = [2, 12, 35, 57, 78, 88, 99];
+  const search = binarySearch(
+    array,
+    35
   )
-  t.is(inRange, true);
-});
-
-test('getIsInRange equility', t => {
-  const pointA = 52.92893;
-  const pointB = 53;
-  const range = 0.1;
-  const inRange = getIsInRange(
-    pointA, 
-    pointB, 
-    range
-  )
-  t.is(inRange, true);
+  t.is(array[search], 35);
 });
 
 test('binarySearch even: Array consist key', t => {
@@ -62,7 +41,7 @@ test('binarySearch odd: Array not consist key and stop closest left', t => {
 });
 
 test('binarySearchWithRange: Not exceed range', t => {
-  const distance = 1000 * 1;
+  const distance = getUnitLatDistance() / 10;
   const searchPoint = {
     latitude: 52.500,
     longitude: -5.27699
@@ -79,7 +58,7 @@ test('binarySearchWithRange: Not exceed range', t => {
 });
 
 test('binarySearchWithRange: Range exceed left-handed bound', t => {
-  const distance = 1000 * 20;
+  const distance = getUnitLatDistance() / 3; // ~0.33
   const searchPoint = {
     latitude: 52.02893,
     longitude: -5.27699
@@ -97,7 +76,7 @@ test('binarySearchWithRange: Range exceed left-handed bound', t => {
 });
 
 test('binarySearchWithRange: Range exceed right-handed bound', t => {
-  const distance = 1000 * 10;
+  const distance = getUnitLatDistance() / 5; // ~0.2
   const searchPoint = {
     latitude: 52.97893,
     longitude: -5.27699
@@ -115,7 +94,7 @@ test('binarySearchWithRange: Range exceed right-handed bound', t => {
 });
 
 test('binarySearchWithRange: Range exceed right-handed and left-handed bound', t => {
-  const distance = 1000 * 111;
+  const distance = getUnitLatDistance(); // ~1
   const searchPoint = {
     latitude: 52.5,
     longitude: -5.27699
@@ -136,7 +115,7 @@ test('binarySearchWithRange: Range exceed right-handed and left-handed bound', t
 // 50.52 |52.02| 53.57
 // 51,52, 53
 test('binarySearchWithRange: Range exceed left-handed and right-handed with 1.5 and fill 4 gap', t => {
-  const distance = 1000 * 111 * 3;
+  const distance = getUnitLatDistance() * 3; // ~333km
   const searchPoint = {
     latitude: 52.5,
     longitude: -5.27699
@@ -156,7 +135,7 @@ test('binarySearchWithRange: Range exceed left-handed and right-handed with 1.5 
 });
 
 test('searchCustomersWithBinary', t => {
-  const distance = 1000 * 111;
+  const distance = getUnitLatDistance();
   const searchPoint = {
     latitude: 51.92893,
     longitude: -6.043701

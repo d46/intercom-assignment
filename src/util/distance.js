@@ -16,7 +16,26 @@ export const haversine = (latlngA, latlngB) => {
   return distance;
 }
 
-export const getDistanceInFly = distance => distance / (111 * 1000);
+export const getUnitLatDistance = () => {
+  return haversine(
+    [0,1],
+    [1,1]
+  )
+}
+
+export const getUnitLonDistance = () => {
+  return haversine(
+    [1,0],
+    [1,1]
+  )
+}
+
+export const getDistanceInFlyLat = distance => 
+  distance / Number(
+    getUnitLatDistance()
+  ).toFixed(10);
+
+export const getDistanceInFlyLon = distance => distance / Number(getUnitLatDistance()).toFixed(10);
 
 export const getIsInRange = (pointA, pointB, range) => Number(Math.abs(pointA - pointB)).toFixed(10) <= range;
 

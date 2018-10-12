@@ -1,4 +1,4 @@
-import { getDistanceInFly, getIsInRange, getIsInDistance } from "../util/distance";
+import { getIsInRange, getIsInDistance, getDistanceInFlyLat } from "../util/distance";
 
 export const binarySearch = (
   array,
@@ -19,7 +19,7 @@ export const binarySearch = (
 }
 
 export const binarySearchWithRange = (distance, point, indexes) => {
-  const range = getDistanceInFly(distance);
+  const range = getDistanceInFlyLat(distance);
   const halfOfRange = range / 2;
 
   let currentLatIndex = Math.floor(point);
