@@ -1,4 +1,4 @@
-exports.default = [{
+module.exports = [{
     "latitude": "52.986375",
     "user_id": 12,
     "name": "Christina McArdle",

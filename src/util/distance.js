@@ -30,17 +30,22 @@ export const getUnitLonDistance = () => {
   )
 }
 
-export const getDistanceInFlyLat = distance => 
+export const distanceToLatLength = distance => 
   distance / Number(
     getUnitLatDistance()
   ).toFixed(10);
 
-export const getDistanceInFlyLon = distance => distance / Number(getUnitLatDistance()).toFixed(10);
+export const distanceToLengthLon = distance => 
+  distance / Number(
+    getUnitLatDistance()
+  ).toFixed(10);
 
-export const getIsInRange = (pointA, pointB, range) => Number(Math.abs(pointA - pointB)).toFixed(10) <= range;
+export const isInRange = (pointA, pointB, range) => 
+  Number(
+    Math.abs(pointA - pointB)
+  ).toFixed(10) <= range;
 
-export const getIsInDistance = (
-  latLonA, 
-  latLonB, 
-  range
-) => range >= haversine(latLonA, latLonB);
+export const isInDistance = (latLonA, latLonB, range ) => 
+  range >= haversine(latLonA, latLonB);
+
+export const toLatLon = (lat, lon) => [+lat, +lon];

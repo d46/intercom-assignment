@@ -1,4 +1,4 @@
-exports.default = {
+module.exports = {
     "indexes": [
         50,
         51,
