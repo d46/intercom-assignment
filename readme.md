@@ -11,7 +11,9 @@ We have some customer records in a text file (customers.txt) -- one customer per
 
 [Binary Search with Latitude Indexed](#binarySearch)
 
-[Binary Search 2d with Latitude and Longitude Indexed](#binarySearch)
+[Binary Search 2d with Latitude and Longitude Indexed](#binarySearch2d)
+
+[Binary Search 2d with Latitude and Longitude Indexed and Scaled x10](#binarySearchScaled)
 
 [Migrations](#migrations)
 
@@ -19,9 +21,7 @@ We have some customer records in a text file (customers.txt) -- one customer per
 
 [Tests](#tests)
 
-[Edge Cases](#edgeCases)
-
-[Conclusion](#conclusion)
+[Conclusion](#Conclusion)
 
 ## NPM Scripts
 
@@ -38,8 +38,6 @@ Starts benchmark testing for whole search algorithms with 100k times iteration a
 Draw benchmarks within table to compare. Giving with extra parameters, allow to filter rows.
 
 `npm run bench:compare 20k .sync`
-
-
 
 ## Haversine 
 
@@ -97,6 +95,20 @@ The complexity for 2d search in indexed rounded latitutdes(+90,-90) and longitud
 
 <img src="/assets/binary2d.jpg" width="450">
 
+## Binary Search 2D and Scaled x10 Lat Lon
+
+To understanding the balance of between searching range and the rate of customers size within the area, tried to scale latitude longitude ranges.
+
+Basically increasing the range of latitudes and longitudes, will cause to draw more closer squares to the circle and filter the un-wanted customers out of the range.
+
+We were draw squares onto unit distances. So minimum square were 111km.
+Scaling x10 lat and lon allow us to draw 11km squares. Look conculusion for more details.
+
+Complexity:
+
+`Θ(log 3600 + 1800) + (Θ(N) * Θ(H))`
+
+
 ## Migrations
 
 Under the `data-source`, I made a `migration` directory to change data-structre for given customers file.
@@ -136,3 +148,11 @@ In `test/util` directory, I tried to test almost possible basic cases and some e
 
 To run tests run,
 `npm test`
+
+## Conclusion
+
+In the Binary 2d Search performance is depends on the given range and its indexes. As you can see in the benchmarks when searching with 10km ranged within the 10km using with 'Binary 2d Scale' data structe, we will get better performance according to the 'Binary 2d' in 10km. Because, Binary 2d is implemented over 100km latitude gaps and 'Binary 2d Scale' is based on 10km.
+
+
+
+

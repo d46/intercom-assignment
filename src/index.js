@@ -40,7 +40,6 @@ Used 2d binary search. Checkout for other benchmarks
 with 'npm run bench:compare'
 
 Extra arguments will filter
-Eg. npm run bench:compare brute
+Eg. npm run bench:compare Brute
     npm run bench:compare 20k .sync
-
 `);

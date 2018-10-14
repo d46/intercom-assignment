@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
-const { absFloor } = require('../../utils/math');
+const { absFloor } = require('../../utils/math')
 
 module.exports = (collection, collectionName) => {
   
   // Create directory
-  const migPath = path.join('data-source', 'lat-lon-indexed');
+  const migPath = path.join('data-source', 'lat-lon-indexed-scale-10');
   mkdirp.sync(migPath);
 
   // Collect data for new data structure
@@ -17,12 +17,12 @@ module.exports = (collection, collectionName) => {
     
     // Populate indexes with rolled lat
     
-    const lat = absFloor(+customer.latitude);
+    const lat = absFloor(+customer.latitude * 10);
     if (!acc.latIndexes.includes(lat)) {
       acc.latIndexes.push(lat)
     }
 
-    const lon = absFloor(+customer.longitude);
+    const lon = absFloor(+customer.longitude * 10);
     if (!acc.lonIndexes.includes(lon)) {
       acc.lonIndexes.push(lon)
     }
