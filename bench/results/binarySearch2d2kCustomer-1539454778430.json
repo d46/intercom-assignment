@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "binarySearch2d2kCustomer",
+        "name": "binarySearch2d2kCustomer: Sync iteration x100000",
+        "time": 1629,
+        "type": "sync"
+    },
+    {
+        "plainName": "binarySearch2d2kCustomer",
+        "name": "binarySearch2d2kCustomer: asyncTimeout iteration x100000",
+        "time": 1699,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "binarySearch2d2kCustomer",
+        "name": "binarySearch2d2kCustomer: alternatingSyncAsync iteration x100000",
+        "time": 1665,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "binarySearch2d2kCustomer",
+        "name": "binarySearch2d2kCustomer: asyncImmediate iteration x100000",
+        "time": 1673,
+        "type": "asyncImmediate"
+    }
+]
