@@ -35,7 +35,7 @@ export const distanceToLatLength = distance =>
     getUnitLatDistance()
   ).toFixed(10);
 
-export const distanceToLengthLon = distance => 
+export const distanceToLonLength = distance => 
   distance / Number(
     getUnitLatDistance()
   ).toFixed(10);

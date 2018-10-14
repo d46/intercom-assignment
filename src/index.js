@@ -32,7 +32,7 @@ process.stdout.write(`
 `);
 console.log(customers.sort((a , b) => a.user_id - b.user_id ));
 console.log(`
-Searched over 20k points with ${Math.floor(distance)}m ranged.`);
+Searched on 32 points with ${Math.floor(distance)}m ranged.`);
 console.info('Execution time (hr): %ds %dms', timeB[0], timeB[1] / 1000000)
 
 console.log(`
