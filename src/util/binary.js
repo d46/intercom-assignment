@@ -1,4 +1,5 @@
 import { isInRange } from "./distance";
+import { absFloor } from "./math";
 
 export const binarySearch = (
   array,
@@ -19,10 +20,10 @@ export const binarySearch = (
 }
 
 export const binarySearchWithRangeDouble = (range, point, array) => {
-  let currentBound = Math.floor(point);
+  let currentBound = absFloor(point);
   const halfOfRange = range / 2;
   const leftBound =  point - halfOfRange
-  const leftBoundFloor = Math.floor(leftBound);
+  const leftBoundFloor = absFloor(leftBound);
   const isInSameIndex = isInRange(
     leftBoundFloor,
     currentBound,
@@ -38,7 +39,7 @@ export const binarySearchWithRangeDouble = (range, point, array) => {
     currentBound
   );
 
-  const rightBound = Math.floor(point + halfOfRange);
+  const rightBound = absFloor(point + halfOfRange);
   let inRanges = [];
   for(let i = closestLeftFloor; array[i] <= rightBound; i++) {
     inRanges.push(array[i]);

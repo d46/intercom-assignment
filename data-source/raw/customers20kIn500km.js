@@ -67,7 +67,7 @@ module.exports = [{
   {
     "latitude": 53.768043,
     "user_id": "5bbe54e7861efabb5a43827d",
-    "name": "Rose Higgins",
+    "name": "Oscar Wilde",
     "longitude": -7.983466
   },
   {

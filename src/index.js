@@ -1,46 +1,46 @@
-import customers32 from '../data-source/raw/customersIn500km';
-import customers2k from '../data-source/raw/customers2kIn500km';
-import customers20k from '../data-source/raw/customers20kIn500km';
+import customersIn500kmLatLonIndexed from '../data-source/lat-lon-indexed/customersIn500kmLatLonIndexed';
+import searchDistanceWithRangeBinary2d from './search/distance/range/binary2d';
+import { getUnitLatDistance } from './util/distance';
 
-import customers32LatIndexed from '../data-source/lat-indexed/customersIn500kmLatIndexed';
-import customers2kLatIndexed from '../data-source/lat-indexed/customers2kIn500kmLatIndexed';
-import customers20kLatIndexed from '../data-source/lat-indexed/customers20kIn500kmLatIndexed';
-
-import searchDistanceWithRangeBruteForce from './search/distance/range/brute-force';
-import searchDistanceWithRangeBinary from './search/distance/range/binary';
-
-const searchBruteForce = (collection) => {
-  const distance = 1000 * 100; // 1km
+const distance = getUnitLatDistance(); // ~111km
+const binarySearch2d = (collection) => {
   const searchPoint =  {
-    latitude: 51.92893,
-    longitude: -5.27699
-  };
-  return searchDistanceWithRangeBruteForce(
-    searchPoint,
-    distance,
-    collection,
-    {
-      pointLatKey: 'latitude',
-      pointLonKey: 'longitude'
-    }
-  );    
-}
-
-const binarySearch = (collection) => {
-  const distance = 1000 * 111; // 111km
-  const searchPoint =  {
-    latitude: 53.125453,
-    longitude: -8.295377
+    latitude: 53.339428,
+    longitude: -6.257664
   }
-  return searchDistanceWithRangeBinary(
+  return searchDistanceWithRangeBinary2d(
     searchPoint,
     distance,
     collection,
     {
+      indexLatKey: 'latIndexes',
+      indexLonKey: 'lonIndexes', 
+      collectionKey: 'customers',
       pointLatKey: 'latitude',
       pointLonKey: 'longitude'
     }
   ); 
-}
+};
 
-binarySearch(customers20kLatIndexed)
+const timeA = process.hrtime();
+const customers = binarySearch2d(customersIn500kmLatLonIndexed)
+const timeB = process.hrtime(timeA);
+
+process.stdout.write(`
+\u001b[2J\u001b[0;0H
+
+`);
+console.log(customers.sort((a , b) => a.user_id - b.user_id ));
+console.log(`
+Searched over 20k points with ${Math.floor(distance)}m ranged.`);
+console.info('Execution time (hr): %ds %dms', timeB[0], timeB[1] / 1000000)
+
+console.log(`
+Used 2d binary search. Checkout for other benchmarks 
+with 'npm run bench:compare'
+
+Extra arguments will filter
+Eg. npm run bench:compare brute
+    npm run bench:compare 20k .sync
+
+`);

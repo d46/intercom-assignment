@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import CliTable from 'cli-table2';
 
+
 const benchmarks = fs
   .readdirSync(path.join(__dirname, 'results'))
   // Iterate files
@@ -31,6 +32,8 @@ const cliTable = new CliTable({
 });
 
 
+const filters = process.argv.slice(2, process.argv.length);
+
 Object.keys(benchmarks)
       .forEach(benchmarksGroupName => {
         const benchmarksGroup = benchmarks[benchmarksGroupName].sort((benchA, benchB) => benchB.time - benchA.time);
@@ -40,7 +43,19 @@ Object.keys(benchmarks)
         const min = benchmarksGroup[size -1].time / 1000;
         const mean = Math.round((sum / size) * 1000) / 1000;
         const median = benchmarksGroup[Math.floor(size/2)].time / 1000;
+
+        const filtered = filters.every(filter => benchmarksGroupName.includes(filter));
+        if (filters.length > 0 && !filtered) {
+          return;
+        }
         cliTable.push([benchmarksGroupName, `${mean} sec`, `${median} sec`, `${min} sec`, `${max} sec`]);
       });
 
-console.log(cliTable.toString());
+process.stdout.write("\u001b[2J\u001b[0;0H");
+console.log(`
+
+
+${cliTable.toString()}
+
+
+`);

@@ -1,6 +1,15 @@
 import test from 'ava';
 import { binarySearchWithRangeDouble, binarySearch } from '../../src/util/binary';
 
+test('binarySearch odd: single', t => {
+  const array = [2];
+  const search = binarySearch(
+    array,
+    2
+  )
+  t.is(array[search], 2);
+});
+
 test('binarySearch odd: Array consist key', t => {
   const array = [2, 12, 35, 57, 78, 88, 99];
   const search = binarySearch(

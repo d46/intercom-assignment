@@ -2,7 +2,7 @@ import alternatingSyncAsync from './concurrent/alternating-sync-async';
 import asyncImmediate from './concurrent/async-immediate';
 import asyncTimeout from './concurrent/async-timeout';
 import sync from './concurrent/sync';
-import App from '../src';
+import { binarySearch2d, binarySearch2d20kCustomer, binarySearch2d32Customer, binarySearch2d2kCustomer } from '../src';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
@@ -102,23 +102,42 @@ const timeA = Date.now();
   // App.bruteForce20kCustomer,
   // App.bruteForce20kCustomer,
 
-  App.binary32Customer,
-  App.binary32Customer,
-  App.binary32Customer,
-  App.binary32Customer,
-  App.binary32Customer,
+  // App.binary32Customer,
+  // App.binary32Customer,
+  // App.binary32Customer,
+  // App.binary32Customer,
+  // App.binary32Customer,
 
-  App.binary2kCustomer,
-  App.binary2kCustomer,
-  App.binary2kCustomer,
-  App.binary2kCustomer,
-  App.binary2kCustomer,
+  // App.binary2kCustomer,
+  // App.binary2kCustomer,
+  // App.binary2kCustomer,
+  // App.binary2kCustomer,
+  // App.binary2kCustomer,
 
-  App.binary20kCustomer,
-  App.binary20kCustomer,
-  App.binary20kCustomer,
-  App.binary20kCustomer,
-  App.binary20kCustomer
+  // App.binary20kCustomer,
+  // App.binary20kCustomer,
+  // App.binary20kCustomer,
+  // App.binary20kCustomer,
+  // App.binary20kCustomer
+  
+  binarySearch2d32Customer,
+  binarySearch2d32Customer,
+  binarySearch2d32Customer,
+  binarySearch2d32Customer,
+  binarySearch2d32Customer,
+
+  binarySearch2d2kCustomer,
+  binarySearch2d2kCustomer,
+  binarySearch2d2kCustomer,
+  binarySearch2d2kCustomer,
+  binarySearch2d2kCustomer,
+
+  binarySearch2d20kCustomer,
+  binarySearch2d20kCustomer,
+  binarySearch2d20kCustomer,
+  binarySearch2d20kCustomer,
+  binarySearch2d20kCustomer,
+  
 ].forEach(executeTasksWithFn);
 const timeB = Date.now();
 console.log(`Completed in ${(timeB - timeA) / 1000}sec`);

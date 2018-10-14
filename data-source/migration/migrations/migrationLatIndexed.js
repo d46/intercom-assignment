@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
+const { absFloor } = require('../../utils/math');
 
 module.exports = (collection, collectionName) => {
   
@@ -12,7 +13,7 @@ module.exports = (collection, collectionName) => {
   let newStructure = collection.reduce((acc, customer)=> {
     // Populate indexes with rolled lat
     if (!acc.hasOwnProperty('indexes')) acc.indexes = [];
-    const lat = Math.floor(+customer.latitude);
+    const lat = absFloor(+customer.latitude);
     if (!acc.indexes.includes(lat)) {
       acc.indexes.push(lat)
     }
