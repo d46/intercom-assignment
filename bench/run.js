@@ -2,7 +2,23 @@ import alternatingSyncAsync from './concurrent/alternating-sync-async';
 import asyncImmediate from './concurrent/async-immediate';
 import asyncTimeout from './concurrent/async-timeout';
 import sync from './concurrent/sync';
-import { binarySearch2d, binarySearch2d20kCustomer, binarySearch2d32Customer, binarySearch2d2kCustomer } from '../src';
+import {
+  searchWith100kRangeIn20kBruteForce,
+  searchWith10kRangeIn20kBruteForce
+} from './cases/searchIn20kBruteForce'
+import { 
+  searchWith10kRangeIn20kBinary,
+  searchWith100kRangeIn20kBinary
+} from './cases/searchIn20kBinary';
+import {
+  searchWith10kRangeIn20kBinary2d,
+  searchWith100kRangeIn20kBinary2d
+} from './cases/searchIn20kBinary2d'
+import {
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith100kRangeIn20kBinary2dScale
+} from './cases/searchIn20kBinary2dScale';
+
 import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
@@ -82,61 +98,61 @@ const executeTasksWithFn = (fn) => {
   )
 }
 
+const multiplyArr = (arr) => 
+
 console.log('Benchmark has been started.');
 const timeA = Date.now();
 [
-  // App.bruteForce32Customer,
-  // App.bruteForce32Customer,
-  // App.bruteForce32Customer,
-  // App.bruteForce32Customer,
-  // App.bruteForce32Customer,
 
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  // App.bruteForce2kCustomer,
-  
-  // App.bruteForce20kCustomer,
-  // App.bruteForce20kCustomer,
-  // App.bruteForce20kCustomer,
-  // App.bruteForce20kCustomer,
+  searchWith10kRangeIn20kBruteForce,
+  searchWith10kRangeIn20kBruteForce,
+  searchWith10kRangeIn20kBruteForce,
+  searchWith10kRangeIn20kBruteForce,
+  searchWith10kRangeIn20kBruteForce,
 
-  // App.binary32Customer,
-  // App.binary32Customer,
-  // App.binary32Customer,
-  // App.binary32Customer,
-  // App.binary32Customer,
+  searchWith100kRangeIn20kBruteForce,
+  searchWith100kRangeIn20kBruteForce,
+  searchWith100kRangeIn20kBruteForce,
+  searchWith100kRangeIn20kBruteForce,
+  searchWith100kRangeIn20kBruteForce,
 
-  // App.binary2kCustomer,
-  // App.binary2kCustomer,
-  // App.binary2kCustomer,
-  // App.binary2kCustomer,
-  // App.binary2kCustomer,
+  searchWith10kRangeIn20kBinary,
+  searchWith10kRangeIn20kBinary,
+  searchWith10kRangeIn20kBinary,
+  searchWith10kRangeIn20kBinary,
+  searchWith10kRangeIn20kBinary,
 
-  // App.binary20kCustomer,
-  // App.binary20kCustomer,
-  // App.binary20kCustomer,
-  // App.binary20kCustomer,
-  // App.binary20kCustomer
-  
-  binarySearch2d32Customer,
-  binarySearch2d32Customer,
-  binarySearch2d32Customer,
-  binarySearch2d32Customer,
-  binarySearch2d32Customer,
+  searchWith100kRangeIn20kBinary,
+  searchWith100kRangeIn20kBinary,
+  searchWith100kRangeIn20kBinary,
+  searchWith100kRangeIn20kBinary,
+  searchWith100kRangeIn20kBinary,
 
-  binarySearch2d2kCustomer,
-  binarySearch2d2kCustomer,
-  binarySearch2d2kCustomer,
-  binarySearch2d2kCustomer,
-  binarySearch2d2kCustomer,
+  searchWith10kRangeIn20kBinary2d,
+  searchWith10kRangeIn20kBinary2d,
+  searchWith10kRangeIn20kBinary2d,
+  searchWith10kRangeIn20kBinary2d,
+  searchWith10kRangeIn20kBinary2d,
 
-  binarySearch2d20kCustomer,
-  binarySearch2d20kCustomer,
-  binarySearch2d20kCustomer,
-  binarySearch2d20kCustomer,
-  binarySearch2d20kCustomer,
+  searchWith100kRangeIn20kBinary2d,
+  searchWith100kRangeIn20kBinary2d,
+  searchWith100kRangeIn20kBinary2d,
+  searchWith100kRangeIn20kBinary2d,
+  searchWith100kRangeIn20kBinary2d,
+
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith10kRangeIn20kBinary2dScale,
+  searchWith10kRangeIn20kBinary2dScale,
+
+  searchWith100kRangeIn20kBinary2dScale,
+  searchWith100kRangeIn20kBinary2dScale,
+  searchWith100kRangeIn20kBinary2dScale,
+  searchWith100kRangeIn20kBinary2dScale,
+  searchWith100kRangeIn20kBinary2dScale,
+
   
 ].forEach(executeTasksWithFn);
 const timeB = Date.now();

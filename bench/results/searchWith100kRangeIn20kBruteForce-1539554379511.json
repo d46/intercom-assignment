@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "searchWith100kRangeIn20kBruteForce",
+        "name": "searchWith100kRangeIn20kBruteForce: Sync iteration x100000",
+        "time": 13765,
+        "type": "sync"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBruteForce",
+        "name": "searchWith100kRangeIn20kBruteForce: asyncTimeout iteration x100000",
+        "time": 12931,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBruteForce",
+        "name": "searchWith100kRangeIn20kBruteForce: alternatingSyncAsync iteration x100000",
+        "time": 12871,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBruteForce",
+        "name": "searchWith100kRangeIn20kBruteForce: asyncImmediate iteration x100000",
+        "time": 14018,
+        "type": "asyncImmediate"
+    }
+]

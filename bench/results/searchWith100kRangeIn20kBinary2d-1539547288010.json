@@ -1,0 +1,26 @@
+[
+    {
+        "plainName": "searchWith100kRangeIn20kBinary2d",
+        "name": "searchWith100kRangeIn20kBinary2d: Sync iteration x100000",
+        "time": 2822,
+        "type": "sync"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBinary2d",
+        "name": "searchWith100kRangeIn20kBinary2d: asyncTimeout iteration x100000",
+        "time": 2629,
+        "type": "asyncTimeout"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBinary2d",
+        "name": "searchWith100kRangeIn20kBinary2d: alternatingSyncAsync iteration x100000",
+        "time": 2704,
+        "type": "alternatingSyncAsync"
+    },
+    {
+        "plainName": "searchWith100kRangeIn20kBinary2d",
+        "name": "searchWith100kRangeIn20kBinary2d: asyncImmediate iteration x100000",
+        "time": 2620,
+        "type": "asyncImmediate"
+    }
+]
