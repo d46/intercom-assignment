@@ -3,17 +3,17 @@ We have some customer records in a text file (customers.txt) -- one customer per
 
 ## Contents
 
-[NPM Scripts](#scripts)
+[NPM Scripts](#npm-scripts)
 
 [Haversine](#haversine) 
 
-[Lineer Search](#lineerSearch)
+[Lineer Search](#lineer-search)
 
-[Binary Search with Latitude Indexed](#binarySearch)
+[Binary Search with Latitude Indexed](#binary-search)
 
-[Binary Search 2d with Latitude and Longitude Indexed](#binarySearch2d)
+[Binary Search 2d with Latitude and Longitude Indexed](#binary-search-2d)
 
-[Binary Search 2d with Latitude and Longitude Indexed and Scaled x10](#binarySearchScaled)
+[Binary Search 2d with Latitude and Longitude Indexed and Scaled x10](#binary-search-2d-and-scaled-x10-lat-lon)
 
 [Migrations](#migrations)
 
@@ -21,12 +21,9 @@ We have some customer records in a text file (customers.txt) -- one customer per
 
 [Tests](#tests)
 
-[Conclusion](#Conclusion)
+[Conclusion](#conclusion)
 
 ## NPM Scripts
-
-#### `npm run serve` 
-Starts search api. Only works with binary search 2d with enchanted.
 
 #### `npm run start` 
 Starts one time search execution with the showing hr time.
@@ -121,7 +118,7 @@ If you have a bigger test file, do this steps.
 - Add `A` into the `data-source/data-sources-enum.js`
 - Run `node data-source/migration`
 
-To make a benchmark import that json file in to `bench/run.js` then add an array bottom of file. 5 times adding will be enough to measure mean and median.
+To make a benchmark do same steps under the `bench/cases/some.js` then add an array bottom of the `bench/run.js` file. 5 times adding will be enough to measure mean and median.
 
 ## Benchmarks
 
