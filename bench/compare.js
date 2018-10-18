@@ -2,7 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import CliTable from 'cli-table2';
 
-
 const benchmarks = fs
   .readdirSync(path.join(__dirname, 'results'))
   // Iterate files

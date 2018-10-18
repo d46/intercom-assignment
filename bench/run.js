@@ -98,62 +98,28 @@ const executeTasksWithFn = (fn) => {
   )
 }
 
-const multiplyArr = (arr) => 
+const multiplyArr = (arr, iteration, acc) => iteration > 0 ? multiplyArr(arr, --iteration, [...acc, ...arr]): acc;
+const multiplier = 5;
 
 console.log('Benchmark has been started.');
 const timeA = Date.now();
 [
+  ...multiplyArr([searchWith10kRangeIn20kBruteForce], multiplier, []),
 
-  searchWith10kRangeIn20kBruteForce,
-  searchWith10kRangeIn20kBruteForce,
-  searchWith10kRangeIn20kBruteForce,
-  searchWith10kRangeIn20kBruteForce,
-  searchWith10kRangeIn20kBruteForce,
+  ...multiplyArr([searchWith100kRangeIn20kBruteForce], multiplier, []),
 
-  searchWith100kRangeIn20kBruteForce,
-  searchWith100kRangeIn20kBruteForce,
-  searchWith100kRangeIn20kBruteForce,
-  searchWith100kRangeIn20kBruteForce,
-  searchWith100kRangeIn20kBruteForce,
+  ...multiplyArr([searchWith10kRangeIn20kBinary], multiplier, []),
 
-  searchWith10kRangeIn20kBinary,
-  searchWith10kRangeIn20kBinary,
-  searchWith10kRangeIn20kBinary,
-  searchWith10kRangeIn20kBinary,
-  searchWith10kRangeIn20kBinary,
+  ...multiplyArr([searchWith100kRangeIn20kBinary], multiplier, []),
 
-  searchWith100kRangeIn20kBinary,
-  searchWith100kRangeIn20kBinary,
-  searchWith100kRangeIn20kBinary,
-  searchWith100kRangeIn20kBinary,
-  searchWith100kRangeIn20kBinary,
+  ...multiplyArr([searchWith10kRangeIn20kBinary2d], multiplier, []),
 
-  searchWith10kRangeIn20kBinary2d,
-  searchWith10kRangeIn20kBinary2d,
-  searchWith10kRangeIn20kBinary2d,
-  searchWith10kRangeIn20kBinary2d,
-  searchWith10kRangeIn20kBinary2d,
+  ...multiplyArr([searchWith100kRangeIn20kBinary2d], multiplier, []),
 
-  searchWith100kRangeIn20kBinary2d,
-  searchWith100kRangeIn20kBinary2d,
-  searchWith100kRangeIn20kBinary2d,
-  searchWith100kRangeIn20kBinary2d,
-  searchWith100kRangeIn20kBinary2d,
+  ...multiplyArr([searchWith10kRangeIn20kBinary2dScale], multiplier, []),
 
-  searchWith10kRangeIn20kBinary2dScale,
-  searchWith10kRangeIn20kBinary2dScale,
-  searchWith10kRangeIn20kBinary2dScale,
-  searchWith10kRangeIn20kBinary2dScale,
-  searchWith10kRangeIn20kBinary2dScale,
-  searchWith10kRangeIn20kBinary2dScale,
+  ...multiplyArr([searchWith100kRangeIn20kBinary2dScale], multiplier, []),
 
-  searchWith100kRangeIn20kBinary2dScale,
-  searchWith100kRangeIn20kBinary2dScale,
-  searchWith100kRangeIn20kBinary2dScale,
-  searchWith100kRangeIn20kBinary2dScale,
-  searchWith100kRangeIn20kBinary2dScale,
-
-  
 ].forEach(executeTasksWithFn);
 const timeB = Date.now();
 console.log(`Completed in ${(timeB - timeA) / 1000}sec`);
