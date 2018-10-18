@@ -10,6 +10,15 @@ test('binarySearch odd: single', t => {
   t.is(array[search], 2);
 });
 
+test('binarySearch odd: single negative', t => {
+  const array = [-2];
+  const search = binarySearch(
+    array,
+    -2
+  )
+  t.is(array[search], -2);
+});
+
 test('binarySearch odd: Array consist key', t => {
   const array = [2, 12, 35, 57, 78, 88, 99];
   const search = binarySearch(
@@ -17,6 +26,15 @@ test('binarySearch odd: Array consist key', t => {
     35
   )
   t.is(array[search], 35);
+});
+
+test('binarySearch odd: Array consist key negative', t => {
+  const array = [-99, -88, -78, -58, -35, -12, -12];
+  const search = binarySearch(
+    array,
+    -35
+  )
+  t.is(array[search], -35);
 });
 
 test('binarySearch even: Array consist key', t => {
@@ -28,6 +46,15 @@ test('binarySearch even: Array consist key', t => {
   t.is(array[search], 35);
 });
 
+test('binarySearch even: Array consist key negative', t => {
+  const array = [-99, -88, -78, -35, -12, -12];
+  const search = binarySearch(
+    array,
+    -35
+  )
+  t.is(array[search], -35);
+});
+
 test('binarySearch even: Array not consist key and stop on closest left-handed', t => {
   const array = [2, 12, 35, 57, 78, 88];
   const search = binarySearch(
@@ -35,6 +62,15 @@ test('binarySearch even: Array not consist key and stop on closest left-handed',
     34
   )
   t.is(array[search], 12);
+});
+
+test('binarySearch even: Array not consist key and stop on closest left-handed negative', t => {
+  const array = [-99, -88, -78, -35, -12, -12];
+  const search = binarySearch(
+    array,
+    -34
+  )
+  t.is(array[search], -35);
 });
 
 test('binarySearch odd: Array not consist key and stop closest on left-handed', t => {
