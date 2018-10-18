@@ -145,4 +145,15 @@ To run tests run,
 
 ## Conclusion
 
+### Relation Between Range and Indexes
 In the Binary 2d Search performance is depends on the given range and its indexes. As you can see in the benchmarks when searching with 10km ranged within the 10km using with 'Binary 2d Scale' data structure, we will get better performance according to the 'Binary 2d' in 10km. Because Binary 2d is implemented over 100km latitude gaps and 'Binary 2d Scale' is based on 10km.
+
+So, dominator is always N. Distribution of the points within the defined square is the dominator of the result's speed. Creating smaller squares gives an efficiency as well not a dominator of the run-time such as distribution.
+
+
+### Better data fetching
+Other big issues was fetching datas from files, from big files! For production usage we might choose some storage and fetching datas by index keys.
+
+
+
+
