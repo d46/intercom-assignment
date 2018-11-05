@@ -1,3 +1,6 @@
+# Status
+Rejected 💩( Making basic loop is also accepted.... ). They are not looking for a good engineer. They are looking for a person who is perfectly fit their role. So good luck :)
+
 # Assignment
 We have some customer records in a text file (customers.txt) -- one customer per line, JSON lines formatted. We want to invite any customer within 100km of our Dublin office for some food and drinks on us. Write a program that will read the full list of customers and output the names and user ids of matching customers (within 100km), sorted by User ID (ascending).
 
